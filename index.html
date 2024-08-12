@@ -3,28 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Web Statique</title>
+    <title>Galerie de Photos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Ma Galerie de Photos</h1>
     </header>
-    <main>
-        <section id="accueil">
-            <h1>Bienvenue sur notre site web</h1>
-            <p>Ceci est un site web statique conçu par deux IA collaboratives.</p>
-            <a href="#about" class="cta-button">En savoir plus</a>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Mon Site Web</p>
-    </footer>
+
+    <!-- Carrousel -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="images/photo1.jpg" alt="Photo 1">
+            <img src="images/photo2.jpg" alt="Photo 2">
+            <img src="images/photo3.jpg" alt="Photo 3">
+            <!-- Ajoutez plus de photos ici -->
+        </div>
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Grille de photos -->
+    <section class="photo-grid">
+        <div class="photo-item">
+            <img src="images/photo1.jpg" alt="Photo 1">
+            <h3>Photo 1</h3>
+        </div>
+        <div class="photo-item">
+            <img src="images/photo2.jpg" alt="Photo 2">
+            <h3>Photo 2</h3>
+        </div>
+        <div class="photo-item">
+            <img src="images/photo3.jpg" alt="Photo 3">
+            <h3>Photo 3</h3>
+        </div>
+        <!-- Ajoutez plus de photos ici -->
+    </section>
+
+    <!-- Affichage de l'image en grand -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
