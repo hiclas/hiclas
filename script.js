@@ -9,10 +9,10 @@ function fetchImages() {
     // Ici, vous devez lister manuellement les images ou utiliser un mécanisme de serveur
     // pour générer cette liste dynamiquement. En mode client pur, cela doit être manuel.
     const imageFiles = [
-        'photo1.jpg',
-        'photo2.jpg',
-        'photo3.jpg',
-        // Ajoutez ici toutes les autres images
+        'IMG_0149.jpg',
+        'IMG_0419.jpg',
+        'IMG_0486.jpg',
+        'IMG_0488.jpg'
     ];
 
     imageFiles.forEach(file => {
