@@ -16,16 +16,16 @@ header {
 .carousel {
     position: relative;
     max-width: 80%; /* Ajuste la largeur du carrousel */
-    height: 400px; /* Réduit la hauteur du carrousel */
+    height: 500px; /* Ajuste la hauteur du carrousel */
     margin: 20px auto; /* Centrer le carrousel */
     overflow: hidden;
     border-radius: 10px; /* Coins arrondis pour un look plus agréable */
 }
 
 .carousel-images img {
-    width: 100% !important;
-    height: 100% !important; /* Assure que l'image occupe toute la hauteur du carrousel */
-    object-fit: cover; /* Pour que l'image reste proportionnée et couvre toute la zone */
+    width: 100%;
+    height: 100%; /* Assure que l'image occupe toute la hauteur du carrousel */
+    object-fit: contain; /* Modifiez ici pour montrer toute l'image sans la couper */
     display: none;
 }
 
@@ -63,12 +63,15 @@ header {
 .photo-item {
     margin: 10px;
     text-align: center;
-    width: 150px; /* Taille des miniatures */
+    width: 150px; /* Largeur fixe des miniatures */
+    height: 150px; /* Hauteur fixe des miniatures */
+    overflow: hidden; /* Masquer toute partie de l'image qui dépasse */
 }
 
 .photo-item img {
-    width: 100%; /* Ajuste l'image pour occuper tout l'espace du conteneur */
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse le conteneur tout en gardant le ratio */
     cursor: pointer;
     transition: transform 0.2s;
     border-radius: 5px;
