@@ -15,9 +15,10 @@ header {
 
 .carousel {
     position: relative;
-    max-width: 100%;
-    margin: auto;
+    max-width: 80%; /* Ajuste la largeur du carrousel */
+    margin: 20px auto; /* Centrer le carrousel */
     overflow: hidden;
+    border-radius: 10px; /* Coins arrondis pour un look plus agréable */
 }
 
 .carousel-images img {
@@ -59,13 +60,15 @@ header {
 .photo-item {
     margin: 10px;
     text-align: center;
+    width: 150px; /* Largeur des miniatures */
 }
 
 .photo-item img {
-    max-width: 100%;
+    width: 100%; /* Ajuste l'image pour occuper tout l'espace du conteneur */
     height: auto;
     cursor: pointer;
     transition: transform 0.2s;
+    border-radius: 5px;
 }
 
 .photo-item img:hover {
