@@ -1,18 +1,18 @@
-// Variables globales pour le carrousel
 let slideIndex = 0;
+let slides;
+let autoSlideInterval;
 
 // Fonction pour obtenir les images du dossier
 function fetchImages() {
     const imagePaths = [];
     const imagesFolder = 'images/';
     
-    // Ici, vous devez lister manuellement les images ou utiliser un mécanisme de serveur
-    // pour générer cette liste dynamiquement. En mode client pur, cela doit être manuel.
     const imageFiles = [
         'IMG_0149.jpg',
         'IMG_0419.jpg',
         'IMG_0486.jpg',
-        'IMG_0488.jpg'
+        'IMG_0488.jpg',
+        // Ajoutez ici toutes les autres images
     ];
 
     imageFiles.forEach(file => {
@@ -38,6 +38,8 @@ function generateCarousel(imagesArray) {
         img.style.display = index === 0 ? 'block' : 'none'; // Affiche seulement la première image
         carouselContainer.appendChild(img);
     });
+    slides = document.querySelectorAll('.carousel-images img');
+    autoSlideInterval = setInterval(() => changeSlide(1), 7000); // Changer d'image toutes les 7 secondes
 }
 
 // Fonction pour générer la grille de photos
@@ -54,18 +56,13 @@ function generatePhotoGrid(imagesArray) {
             openModal(src, `Photo ${index + 1}`);
         };
 
-        const title = document.createElement('h3');
-        title.textContent = `Photo ${index + 1}`;
-
         photoItem.appendChild(img);
-        photoItem.appendChild(title);
         photoGrid.appendChild(photoItem);
     });
 }
 
 // Afficher le carrousel de manière dynamique
 function changeSlide(n) {
-    let slides = document.querySelectorAll('.carousel-images img');
     slideIndex += n;
     if (slideIndex >= slides.length) { slideIndex = 0 }
     if (slideIndex < 0) { slideIndex = slides.length - 1 }
@@ -75,6 +72,7 @@ function changeSlide(n) {
 
 // Modal pour agrandir l'image
 function openModal(src, caption) {
+    clearInterval(autoSlideInterval); // Stopper le carrousel automatique quand la modal est ouverte
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-image");
     const captionText = document.getElementById("caption");
@@ -87,6 +85,7 @@ function openModal(src, caption) {
 function closeModal() {
     const modal = document.getElementById("modal");
     modal.style.display = "none";
+    autoSlideInterval = setInterval(() => changeSlide(1), 7000); // Relancer le carrousel après fermeture de la modal
 }
 
 // Exécution des fonctions après le chargement du DOM
