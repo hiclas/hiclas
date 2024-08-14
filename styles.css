@@ -23,8 +23,8 @@ header {
 }
 
 .carousel-images img {
-    width: 80% !important;
-    height: 70% !important; /* Assure que l'image occupe toute la hauteur du carrousel */
+    width: 100% !important;
+    height: 100% !important; /* Assure que l'image occupe toute la hauteur du carrousel */
     object-fit: cover; /* Pour que l'image reste proportionnée et couvre toute la zone */
     display: none;
 }
